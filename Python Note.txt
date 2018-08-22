@@ -1,0 +1,13 @@
+Python 安装
+	python
+	pip
+	pipenv
+	
+	
+Python 开发工具
+	Pycharm(Eclipse)
+	
+	Xampp(MySQL)
+	
+	Navicat
+	
