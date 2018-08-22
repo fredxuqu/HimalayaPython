@@ -2,7 +2,7 @@
     create by Fred on 2018/8/22
 """
 from flask import Blueprint
-from flask.globals import request
+from flask import request
 
 __author__ = 'Fred'
 
@@ -18,7 +18,9 @@ def get_user():
 
 @user.route('/user/create', methods=['GET','POST'])
 def create_user():
-    data = request.json
+    userid = request.form['userid']
+    username = request.form['username']
+    print (userid + ' ' + username)
     
-    return "Fred Xu"
+    return "Create user " + username + " success"
 
