@@ -4,5 +4,3 @@
 
 __author__ = 'Fred'
 
-class Redprint:
-    pass
