@@ -3,9 +3,10 @@
 """
 from flask import current_app
 from flask import Blueprint, jsonify, request
-from app.service.demoservice import DemoService
+from app.service.demomysqlservice import DemoMySQLService
 from app.forms.demoform import DemoForm
 from app.models.demomodel import DemoModel
+from app.service.demomongoservice import DemoMongoService
 
 __author__ = 'Fred'
 
@@ -47,6 +48,21 @@ def demopost():
         current_app.logger.exception('%r' % e)
 
 
+@democontroller.route('/pyai/demo/savemongo', methods=['GET','POST'])
+def savemongo():
+    try:
+        demoForm = DemoForm(request.form)
+        if demoForm.validate():
+            current_app.logger.debug('Create user : ' + demoForm.username.data + ' ' + demoForm.email.data)
+            model = DemoModel(demoForm.username.data, demoForm.email.data)
+            DemoMongoService.savemongo(model)
+            return jsonify({'msg':'Create user ' + model.username + ' success'})
+        else:
+            return jsonify({'msg':'Invalid args!'})
+    except Exception as e:
+        current_app.logger.exception('%r' % e)
+        
+
 @democontroller.route('/pyai/demo/save', methods=['GET','POST'])
 def save():
     try:
@@ -54,7 +70,7 @@ def save():
         if demoForm.validate():
             current_app.logger.debug('Create user : ' + demoForm.username.data + ' ' + demoForm.email.data)
             model = DemoModel(demoForm.username.data, demoForm.email.data)
-            DemoService.save(model)        
+            DemoMySQLService.save(model)
             return jsonify({'msg':'Create user ' + model.username + ' success'})
         else:
             return jsonify({'msg':'Invalid args!'})
@@ -64,27 +80,27 @@ def save():
     
 @democontroller.route('/pyai/demo/queryall', methods=['GET','POST'])
 def queryall():
-    result = DemoService.queryall()
+    result = DemoMySQLService.queryall()
     return jsonify(result)
     
     
 @democontroller.route('/pyai/demo/get', methods=['GET','POST'])
 def get():
     username = request.args['username']
-    result = DemoService.queryByName(username)
+    result = DemoMySQLService.queryByName(username)
     return jsonify(result)
 
 
 @democontroller.route('/pyai/demo/delete', methods=['GET','POST'])
 def delete():
     username = request.args['username']
-    result = DemoService.delete(username)
+    result = DemoMySQLService.delete(username)
     return jsonify(result)
 
 
 @democontroller.route('/pyai/demo/<isbn>', methods=['GET','POST'])
 def isbn(isbn):
-    result = DemoService.isbn(isbn)
+    result = DemoMySQLService.isbn(isbn)
     print (result)
     return jsonify(result)
 
@@ -93,6 +109,6 @@ def isbn(isbn):
 def search():
     keyword = request.form['q']
     page = int(request.form['page'])
-    result = DemoService.search(keyword, page)
+    result = DemoMySQLService.search(keyword, page)
     return jsonify(result)
 

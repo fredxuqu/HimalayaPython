@@ -48,6 +48,36 @@ Windows:
 		pip install wtforms
 		pip install cymysql
 		
+		finally, below modules will be installed
+		aniso8601        3.0.2
+		asn1crypto       0.24.0
+		certifi          2018.8.24
+		cffi             1.11.5
+		chardet          3.0.4
+		click            6.7
+		cryptography     2.3.1
+		cymysql          0.9.12
+		Flask            1.0.2
+		Flask-RESTful    0.3.6
+		Flask-SQLAlchemy 2.3.2
+		idna             2.7
+		itsdangerous     0.24
+		Jinja2           2.10
+		MarkupSafe       1.0
+		pip              18.0
+		pycparser        2.18
+		PyMySQL          0.9.2
+		pytz             2018.5
+		requests         2.19.1
+		setuptools       40.2.0
+		six              1.11.0
+		SQLAlchemy       1.2.11
+		urllib3          1.23
+		Werkzeug         0.14.1
+		wheel            0.31.1
+		wtf              0.1
+		WTForms          2.2.1
+		
 	3. create project
 		mkdir pythonweb
 		cd pythonweb

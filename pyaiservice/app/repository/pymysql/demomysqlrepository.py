@@ -6,7 +6,7 @@ from app.models.demomodel import DemoModel
 __author__ = 'Fred'
 
 
-class DemoRepository():
+class DemoMysqlRepository():
     
     @classmethod
     def save(self, demomodel):               

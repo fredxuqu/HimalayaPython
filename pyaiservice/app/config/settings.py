@@ -11,3 +11,8 @@ DEBUG = True
 PAGE_SIZE = 10
 LOGGING_LEVEL='INFO'
 LOGGING_FILE='pyaiservice.log'
+
+# MongoDB connection configurations
+MONGO_URI='mongodb://localhost:27017/pyai'
+# MONGO_USERNAME='admin'
+# MONGO_PASSWORD='admin#pwd'

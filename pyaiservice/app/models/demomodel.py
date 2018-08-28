@@ -19,11 +19,7 @@ class DemoModel(Base):
     marshal_fields['id'] = fields.Integer(attribute='id')
     marshal_fields['username'] = fields.String(attribute='username')
     marshal_fields['email'] = fields.String(attribute='email')
-     
-     
-#     def __init__(self):
-#         Base.__init__(self)
-         
+    
            
     def __init__(self, v_username, v_email):
         Base.__init__(self)

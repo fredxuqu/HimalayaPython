@@ -49,7 +49,10 @@ class Base(db.Model):
     def __init__(self):
         self.create_time = int(datetime.now().timestamp())
         self.modify_time = int(datetime.now().timestamp())
-
+        self.version = 0
+        self.status = 0
+        self.user = 'Admin'
+        
 
     @property
     def create_datetime(self):

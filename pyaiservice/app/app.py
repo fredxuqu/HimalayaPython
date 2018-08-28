@@ -3,7 +3,9 @@
 """
 from flask import Flask
 from app.models.demomodel import db
+from app.repository.pymongo.basemongorepository import mongodb
 import logging
+
 
 __author__ = 'Fred'
 
@@ -22,6 +24,10 @@ def register_logging(app):
     handler.setFormatter(logging_format)
     app.logger.addHandler(handler)
     
+    
+def register_mongodb(app):
+    mongodb.init_app(app, None)
+    
 
 def create_app():
     app = Flask(__name__)
@@ -31,6 +37,8 @@ def create_app():
     register_blueprints(app)
     
     register_logging(app)
+    
+    register_mongodb(app)
     
     # init db models
     db.init_app(app)

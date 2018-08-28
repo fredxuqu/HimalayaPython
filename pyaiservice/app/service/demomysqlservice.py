@@ -5,26 +5,26 @@ from flask import current_app
 from flask_restful import marshal
 from app.utils.http import HTTP
 from app.models.demomodel import DemoModel
-from app.repository.pymysql.demorepository import DemoRepository
+from app.repository.pymysql.demomysqlrepository import DemoMysqlRepository
 import json
 
 __author__ = 'Fred'
 
 
-repository = DemoRepository()
+repository = DemoMysqlRepository()
 
 
-class DemoService:
+class DemoMySQLService:
         
     @classmethod
     def save(cls, demomodel):
         repository.save(demomodel);
         return 'succ'
-        
-        
+  
+    
     @classmethod
     def queryByName(cls, username):
-        model = DemoRepository.queryByUserName(username)
+        model = DemoMysqlRepository.queryByUserName(username)
         if model != None:
             return json.loads(json.dumps(marshal(model, DemoModel.marshal_fields)))
         return None
@@ -32,7 +32,7 @@ class DemoService:
     
     @classmethod
     def delete(cls, username):
-        model = DemoRepository.queryByUserName(username)
+        model = DemoMysqlRepository.queryByUserName(username)
         if model != None:
             return model.delete()
         return None
@@ -40,7 +40,7 @@ class DemoService:
         
     @classmethod
     def queryall(cls):
-        data = DemoRepository.queryAll() 
+        data = DemoMysqlRepository.queryAll() 
         result = []
         for d in data:
             result.append(json.loads(json.dumps(marshal(d, DemoModel.marshal_fields))))
