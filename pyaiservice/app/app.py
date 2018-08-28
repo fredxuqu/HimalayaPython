@@ -3,6 +3,7 @@
 """
 from flask import Flask
 from app.models.demomodel import db
+import logging
 
 __author__ = 'Fred'
 
@@ -11,6 +12,16 @@ def register_blueprints(app):
     from app.web.democontroller import democontroller
     app.register_blueprint(aicontroller)
     app.register_blueprint(democontroller)
+    
+    
+def register_logging(app):    
+    handler = logging.FileHandler(app.config['LOGGING_FILE'], encoding='UTF-8')
+    handler.setLevel(app.config['LOGGING_LEVEL'])    
+    logging_format = logging.Formatter(
+                '%(asctime)s - %(levelname)s - %(filename)s - %(funcName)s - %(lineno)s - %(message)s')
+    handler.setFormatter(logging_format)
+    app.logger.addHandler(handler)
+    
 
 def create_app():
     app = Flask(__name__)
@@ -18,6 +29,8 @@ def create_app():
     app.config.from_object('app.config.secure')
     
     register_blueprints(app)
+    
+    register_logging(app)
     
     # init db models
     db.init_app(app)
@@ -27,3 +40,4 @@ def create_app():
         db.create_all()
         
     return app
+

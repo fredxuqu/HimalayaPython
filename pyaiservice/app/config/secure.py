@@ -6,4 +6,4 @@ __author__ = 'Fred'
 
 # used to store password .....
 
-SQLALCHEMY_DATABASE_URI = 'mysql+cymysql://test:Admin#1010@localhost:3306/solr'
+SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://test:Admin#1010@localhost:3306/solr'

@@ -6,6 +6,7 @@ from wtforms.validators import Length
 
 __author__ = 'Fred'
 
+
 class IVWOEForm(Form):
     pass
     
