@@ -10,6 +10,14 @@ wtf = "*"
 wtforms = "*"
 flask-sqlalchemy = "*"
 cymysql = "*"
+pymysql = "*"
+flask-restful = "*"
+flask-pymongo = "*"
+numpy = "*"
+scipy = "*"
+sklearn = "*"
+cx-oracle = "*"
+pytz = "*"
 
 [dev-packages]
 

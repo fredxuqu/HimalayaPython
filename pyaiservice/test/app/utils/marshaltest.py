@@ -5,10 +5,10 @@ import unittest
 from flask_restful import marshal
 import json
 
-from app.models.demomodel import DemoModel
+from app.entity.sampleentity import SampleEntity
 
 __author__ = 'Fred'
-    
+
 
 class TestCase(unittest.TestCase):
 
@@ -18,25 +18,16 @@ class TestCase(unittest.TestCase):
     def tearDown(self):
         unittest.TestCase.tearDown(self)
 
-    def testmarshal(self):
-        model = DemoModel(title= 'java', 
-                           author = 'john',
-                           binding = 'b11',
-                           publisher = 'csdn',
-                           price = 12.0,
-                           pages = 340,
-                           pubdate = '2018-09-01', 
-                           isbn = '9787501524044',
-                           summary = 'mary@example.com',
-                           image = 'mary@example.com.jpg')
+    def test_marshal(self):
+        model = SampleEntity("test sample", "2018010110")
         
         # convert object to json 
-        jsondata = json.dumps(marshal(model, DemoModel.marshal_fields))
-        print (jsondata)
+        json_data = json.dumps(marshal(model, SampleEntity.marshal_fields))
+        print(json_data)
         
         # load json object to json string
-        jsonStr = json.loads(jsondata)
-        print (jsonStr)
+        json_str = json.loads(json_data)
+        print(json_str)
     
             
 if __name__ == '__main__':

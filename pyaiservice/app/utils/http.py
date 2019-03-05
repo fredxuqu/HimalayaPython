@@ -5,6 +5,7 @@ import requests
 
 __author__ = 'Fred'
 
+
 # scrapy, request + beautiful soap
 class HTTP:
     @staticmethod
@@ -13,5 +14,3 @@ class HTTP:
         if req.status_code != 200:
             return {} if return_json else ''
         return req.json() if return_json else req.text
-    
-    

@@ -11,4 +11,4 @@ app.config.from_object('app.config.secure')
 app.config.from_object('app.config.settings')
 
 if __name__ == '__main__':
-    app.run(app.config['HOST'], app.config['PORT'], app.config['DEBUG'], None)
+    app.run(app.config['HOST'], app.config['PORT'], app.config['DEBUG'], use_reloader=False)

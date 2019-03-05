@@ -23,10 +23,10 @@ Windows:
 		certifi, pipenv, tasks, tests, virtualenv will be installed.	
 
 	How to install flask
-		
+			
 	1. configure environment add  C:\Python36\Scripts to System Environment Path
 	
-	2. install flask and related third party libraries
+	2. install flask and related third party libraries(if you use pipenv, please ignore this step)
 		pip install flask
 			below libraries will be installed
 			certifi          2018.8.13
@@ -41,42 +41,14 @@ Windows:
 			virtualenv       16.0.0
 			virtualenv-clone 0.3.0
 			Werkzeug         0.14.1
+		
+		pip install wtf
+		pip install wtforms
 			
 		pip install sqlalchemy		
 		pip install flask-sqlalchemy		
-		pip install wtf
-		pip install wtforms
 		pip install cymysql
-		
-		finally, below modules will be installed
-		aniso8601        3.0.2
-		asn1crypto       0.24.0
-		certifi          2018.8.24
-		cffi             1.11.5
-		chardet          3.0.4
-		click            6.7
-		cryptography     2.3.1
-		cymysql          0.9.12
-		Flask            1.0.2
-		Flask-RESTful    0.3.6
-		Flask-SQLAlchemy 2.3.2
-		idna             2.7
-		itsdangerous     0.24
-		Jinja2           2.10
-		MarkupSafe       1.0
-		pip              18.0
-		pycparser        2.18
-		PyMySQL          0.9.2
-		pytz             2018.5
-		requests         2.19.1
-		setuptools       40.2.0
-		six              1.11.0
-		SQLAlchemy       1.2.11
-		urllib3          1.23
-		Werkzeug         0.14.1
-		wheel            0.31.1
-		wtf              0.1
-		WTForms          2.2.1
+		pip install cx_Oracle
 		
 	3. create project
 		mkdir pythonweb
@@ -86,19 +58,63 @@ Windows:
 		cd pythonweb
 		pipenv install
 			system will install a virtual environment for current project.
-			pipenv will isolate current project.
+			pipenv will isolate current project environment.
+		
 		install flask by pipenv
 			pipenv install flask
-			pipenv install sqlalchemy		
-			pipenv install flask-sqlalchemy		
 			pipenv install wtf
 			pipenv install wtforms
 			pipenv install requests
+			
+			pipenv install sqlalchemy		
+			pipenv install flask-sqlalchemy
 			pipenv install cymysql
+			pipenv install pymysql
+			pipenv install cx_Oracle
+			
+			pipenv install Flask-PyMongo
+			pipenv install Flask-RESTful
+
+			pipenv install scipy
+			pipenv install sklearn
+			pipenv install numpy
+			
+			finally, below modules should be installed
+			aniso8601        3.0.2
+			asn1crypto       0.24.0
+			certifi          2018.8.24
+			cffi             1.11.5
+			chardet          3.0.4
+			click            6.7
+			cryptography     2.3.1
+			cymysql          0.9.12
+			Flask            1.0.2
+			Flask-PyMongo    2.1.0
+			Flask-RESTful    0.3.6
+			Flask-SQLAlchemy 2.3.2
+			idna             2.7
+			itsdangerous     0.24
+			Jinja2           2.10
+			MarkupSafe       1.0
+			pip              18.0
+			pycparser        2.18
+			pymongo          3.7.1
+			PyMySQL          0.9.2
+			pytz             2018.5
+			requests         2.19.1
+			setuptools       40.2.0
+			six              1.11.0
+			SQLAlchemy       1.2.11
+			urllib3          1.23
+			Werkzeug         0.14.1
+			wheel            0.31.1
+			wtf              0.1
+			WTForms          2.2.1
 			
 			pipenv uninstall flask to uninstall package
 			
-		pipenv graph
+		check related dependency
+		pipenv graph 	
 		
 		set Python Interpreter 
 		references-PyDev-interpreters-Python Interpreter
@@ -149,10 +165,10 @@ Linux 编译安装
 	
 	7. 	install virtualenv
 		sudo pip3 install virtualenv
-	
-	
 
 Deployment:
 	nginx + uwsgi
 	
+
+How to build a web application by pipenv
 
